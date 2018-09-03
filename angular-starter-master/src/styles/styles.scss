@@ -2,6 +2,10 @@
 /* This file is for setting global styles  */
 @import 'variables';
 
+@import '~fullcalendar/dist/fullcalendar.min.css';
+@import '~primeicons/primeicons.css';
+@import '~primeng/resources/themes/nova-light/theme.css';
+@import '~primeng/resources/primeng.min.css';
 
 nav {
   margin-top: 16px;

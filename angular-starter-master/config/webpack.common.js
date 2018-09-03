@@ -5,6 +5,7 @@
 const webpack = require('webpack');
 const helpers = require('./helpers');
 
+
 /**
  * Webpack Plugins
  *
@@ -37,7 +38,8 @@ module.exports = function(options) {
 
   const entry = {
     polyfills: './src/polyfills.browser.ts',
-    main: './src/main.browser.ts'
+    main: './src/main.browser.ts',
+    primestyles: './src/styles/styles.scss'
   };
 
   Object.assign(ngcWebpackConfig.plugin, {
@@ -127,6 +129,18 @@ module.exports = function(options) {
           exclude: [helpers.root('src', 'styles')]
         },
 
+        // {
+        //   test: /\.css$/,
+        //   exclude: helpers.root('src', 'styles'),
+        //   loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader?sourceMap' })
+        // },
+        //
+        // {
+        //   test: /\.css$/,
+        //   include: helpers.root('src', 'styles'),
+        //   loader: 'raw-loader'
+        // },
+
         /**
          * Raw loader support for *.html
          * Returns file content as string
@@ -144,7 +158,8 @@ module.exports = function(options) {
          */
         {
           test: /\.(jpg|png|gif)$/,
-          use: 'file-loader'
+          use:  'file-loader'
+          //use: 'file-loader'
         },
 
         /* File loader for supporting fonts, for example, in CSS files.
@@ -275,7 +290,7 @@ module.exports = function(options) {
 
       new webpack.ProvidePlugin({
         moment: 'moment',
-        FullCalendar: 'fullcalendar/dist/fullcalendar.js'
+        FullCalendar: 'fullcalendar/dist/fullcalendar.min.js'
       }),
     ],
 
