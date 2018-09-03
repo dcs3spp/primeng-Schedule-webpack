@@ -8,8 +8,15 @@
   <div>
     <h4>Scheduler instance goes here....</h4>
 
-    <p-schedule>
+    <p-schedule [events]="events"
+      [header]="headerConfig"
+      [(defaultDate)]="defaultDate"
+      [eventLimit]="4"
+      [editable]="false"
+      [weekends]="false"
+      [aspectRatio]="1.8">
     </p-schedule>
+
   </div>
 
 </div>

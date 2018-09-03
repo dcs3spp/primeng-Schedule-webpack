@@ -32,6 +32,10 @@ export class SchedulerExampleComponent implements OnInit {
   /**
    * Set our default values
    */
+   defaultDate: Date;
+   events: any[];
+   headerConfig: any;
+
 
   /**
    * TypeScript public modifiers
@@ -41,6 +45,19 @@ export class SchedulerExampleComponent implements OnInit {
   public ngOnInit() {
     console.log('hello `SchedulerExampleComponent` component');
 
+    this.headerConfig = {
+      left: '',
+      center: 'title',
+      right: 'prev,next'
+    };
+
+    this.events = [
+      {
+        "title": "All Day Event",
+        "start": "2018-01-01",
+        "end": "2018-01-12"
+      }
+    ];
   }
 
   public submitState(value: string) {
