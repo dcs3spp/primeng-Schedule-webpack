@@ -1,12 +1,25 @@
 <div>
-  <h1 x-large class="sample-content">Primeng Scheduler Example</h1>
+  <h1 x-large class="sample-content">Primeng Calendar and Scheduler Example</h1>
 
   <hr>
 
   <hr>
 
   <div>
-    <h4>Scheduler instance goes here....</h4>
+    <h4>Scheduler and calendar example....</h4>
+
+    <form novalidate [formGroup]="form">
+      <p-calendar
+        id="myDate"
+        [showIcon]="true"
+        showTime="true"
+        hourFormat="24"
+        dateFormat="dd-mm-yy"
+        formControlName="myDate"
+        placeholder="set date"
+        required>
+      </p-calendar>
+    </form>
 
     <p-schedule [events]="events"
       [header]="headerConfig"

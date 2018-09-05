@@ -3,8 +3,10 @@ import {
   OnInit
 } from '@angular/core';
 
+import { FormBuilder } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { ScheduleModule } from 'primeng/primeng';
-
+import { Validators } from '@angular/forms';
 
 @Component({
   /**
@@ -34,15 +36,23 @@ export class SchedulerExampleComponent implements OnInit {
    */
    defaultDate: Date;
    events: any[];
+   form: FormGroup;
    headerConfig: any;
 
 
   /**
    * TypeScript public modifiers
    */
-  constructor( ) {}
+  constructor(private fb:FormBuilder) {
+    this.defaultDate = new Date();
+  }
 
   public ngOnInit() {
+
+    this.form = this.fb.group({
+      myDate: [this.defaultDate, [Validators.required]]
+    });
+
     console.log('hello `SchedulerExampleComponent` component');
 
     this.headerConfig = {
